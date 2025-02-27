@@ -28,6 +28,7 @@ var app = builder.Build();
 
 // 4. Middlewares and MinimalAPI endpoints
 app.UseAuthorization();
+app.UseHttpsRedirection();
 app.UseCors();
 
 // 4.1 Make use of appsettings.json configurations (depending of the env):

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MtgApi.DTO;
 
 namespace MtgApi.Controllers;
 
@@ -22,8 +23,17 @@ public class CardsController : ControllerBase
   };
 
   [HttpGet(Name = "GetCurrentCards")]
-  public List<Card> Get()
+  public RestDTO<List<Card>> Get()
   {
-    return CurrentCards;
+    return new()
+    {
+      Links = new(){
+        new( "href", "self", "GET"),
+        new( "href", "self", "POST"),
+        new( "href", "self", "PUT"),
+        new( "href", "self", "DELETE"),
+      },
+      Data = CurrentCards
+    };
   }
 }
