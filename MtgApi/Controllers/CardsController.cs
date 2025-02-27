@@ -28,10 +28,10 @@ public class CardsController : ControllerBase
     return new()
     {
       Links = new(){
-        new( "href", "self", "GET"),
-        new( "href", "self", "POST"),
-        new( "href", "self", "PUT"),
-        new( "href", "self", "DELETE"),
+        new( "href", "self", "GET" ),
+        new( "href", "self", "POST" ),
+        new( "href", "self", "PUT" ),
+        new( "href", "self", "DELETE" ),
       },
       Data = CurrentCards
     };
