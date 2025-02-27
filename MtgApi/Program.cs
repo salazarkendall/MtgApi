@@ -25,9 +25,11 @@ builder.Services.AddCors(options =>
         configuration.WithMethods("GET");
     });
 });
+builder.Configuration.AddUserSecrets<Program>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection"))
-);
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection"))
+    );
 
 // 3. Build the app
 var app = builder.Build();

@@ -9,7 +9,9 @@ public class ApplicationDbContext : DbContext
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     base.OnModelCreating(modelBuilder);
+    modelBuilder.Entity<CardExample>();
   }
 
   // TODO: add DbSets
+  public DbSet<CardExample> CardExamples => Set<CardExample>();
 }
