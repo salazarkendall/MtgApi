@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using MtgApi.Models;
 
 // 1. Create the builder
-var builder = WebApplication.CreateBuilder(); // args is not always needed
+var builder = WebApplication.CreateBuilder(args); // args is not always needed
 
 // 2. Add Services (i.e. Swagger, SwaggerGen, CORS, DbContext, etc.)
 builder.Services.AddControllers();
@@ -25,7 +25,7 @@ builder.Services.AddCors(options =>
         configuration.WithMethods("GET");
     });
 });
-builder.Configuration.AddUserSecrets<Program>();
+// builder.Configuration.AddUserSecrets<Program>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection"))

@@ -7,7 +7,7 @@ namespace MtgApi.Controllers;
 [Route("/[controller]")]
 public class CardsController : ControllerBase
 {
-  private readonly List<Card> CurrentCards = new() {
+  private readonly List<CardLegacy> CurrentCards = new() {
     new() {
       CardName = "Atraxa",
       CardType = "Creature",
@@ -23,7 +23,7 @@ public class CardsController : ControllerBase
   };
 
   [HttpGet(Name = "GetCurrentCards")]
-  public RestDTO<List<Card>> Get()
+  public RestDTO<List<CardLegacy>> Get()
   {
     return new()
     {

@@ -1,6 +1,6 @@
 namespace MtgApi;
 
-public class Card
+public class CardLegacy
 {
   public string CardName { get; set; } = String.Empty;
   public string CardType { get; set; } = String.Empty;
