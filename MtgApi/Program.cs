@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using MtgApi.Models;
+
 // 1. Create the builder
 var builder = WebApplication.CreateBuilder(); // args is not always needed
 
@@ -22,6 +25,9 @@ builder.Services.AddCors(options =>
         configuration.WithMethods("GET");
     });
 });
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection"))
+);
 
 // 3. Build the app
 var app = builder.Build();
